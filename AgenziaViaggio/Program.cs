@@ -8,11 +8,13 @@ namespace AgenziaViaggio
        
         static void Main(string[] args)
         {
-            Ticket viaggio = null;
+            Viaggio viaggio = null;
             IAgenziaViaggio agenziaViaggio = null;
+            IAgenziaStatale agenziaStatale = null;  
             string nome;
             string Cognome;
             string CF;
+            string[] Tragitto; 
 
 
             // Creare Il tipo di viaggio 
@@ -44,10 +46,10 @@ namespace AgenziaViaggio
 
             } while (agenziaInput != 1 && agenziaInput != 2 );
 
-            if(agenziaInput == 1)
-            {
-                agenziaViaggio = new AgenziaOnline(); 
-            }
+            //if(agenziaInput == 1)
+            //{
+            //    agenziaViaggio = new AgenziaOnline(); 
+            //}
 
 
             // Creare viaggiatore 
@@ -71,24 +73,24 @@ namespace AgenziaViaggio
 
             } while (agenziaInput == 'N');
 
-
-            Viaggiatore viaggiatore = new Viaggiatore(nome, Cognome, CF);
+              
+            //  Viaggiatore viaggiatore = new Viaggiatore(nome, Cognome, CF);
             
             switch (viaggioInput)
-            {    
-
-                case 1:                   
-                     viaggio = new Ticket(agenziaViaggio, new Ferrovie(), viaggiatore) ;
+            { 
+                case 1:
+                    agenziaStatale = new Ferrovie();
+                    viaggio = agenziaViaggio.PrenotaViaggio(nome, Cognome, CF, new string[] {}) ;
                     break; 
                 case 2:
-                     viaggio = new Ticket(agenziaViaggio, new Aeroporto(), viaggiatore);
+                    agenziaStatale = new Aeroporto();
+                    viaggio = agenziaViaggio.PrenotaViaggio(nome, Cognome, CF, new string[] { });
                     break;
                 case 3:
-                     viaggio = new Ticket(agenziaViaggio, new Porto(), viaggiatore);
+                    agenziaStatale = new Porto();
+                    viaggio = agenziaViaggio.PrenotaViaggio(nome, Cognome, CF, new string[] { });
                     break;
             }
-
-            viaggio.IniziaViaggio();  
         }
     }
 }

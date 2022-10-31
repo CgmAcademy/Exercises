@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AgenziaViaggio
 {
-    internal class Mezzo
+    internal abstract class Mezzo
     {
         bool[] posti;
 

@@ -2,6 +2,6 @@
 {
     public interface IAgenziaViaggio
     {
-        public void PrenotaViaggio();
+        public Viaggio PrenotaViaggio(string Nome, string Cognome,string CF, string[] Tragitto );
     }
 }

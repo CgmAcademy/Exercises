@@ -3,9 +3,9 @@
     public class Tragitto
     {  
         public string[] _stops;
-        public Tragitto(int stops)
+        public Tragitto(string[] stops)
         {
-            _stops = new string[stops]; 
+            _stops = stops; 
         }       
     }
 }

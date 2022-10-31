@@ -1,16 +1,21 @@
-﻿using AgenziaViaggio.Interfaces;
+﻿using AgenziaViaggio.abstracts;
+using AgenziaViaggio.Interfaces;
 
 namespace AgenziaViaggio
 {
-    public class Aeroporto : Agenzia, IAgenziaStatale
+    public class Aeroporto : Agenzia
     {
         string nome; 
-        public void CheckIn(Ticket viaggio) 
-        {
-            System.Console.WriteLine($"CheckIn pressp Aeroporto di  {viaggio.tr}");
+        
 
-            System.Console.WriteLine($"CheckIn effettuato per {viaggio.viaggiatore.Nome}");
+        public override void CheckIn(Viaggio viaggio)
+        {
+            throw new System.NotImplementedException();
         }
 
+        public override Viaggio PrenotaViaggio(string Nome, string Cognome, string CF, string[] Tragitto)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
